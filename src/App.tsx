@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function App() {
-  return (
-    <div className="w-screen h-screen">
-      app
-    </div>
-  );
+  return <div className="w-screen h-screen">app</div>
 }
 
-export default App;
+export default App
