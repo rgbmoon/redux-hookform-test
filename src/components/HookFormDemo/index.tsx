@@ -2,15 +2,11 @@ import { Button, Grid } from '@mui/material'
 import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { useAppDispatch, useAppSelector } from '../../hooks'
+import { DemoFormState, formSlice, selectForm } from '../../store/slices/formSlice'
 import { Checkbox } from './components/Checkbox'
 import { Input } from './components/Input'
 import { Select } from './components/Select'
-
-type TFormValues = {
-  title: string
-  select: string
-  publish: boolean
-}
 
 const OPTIONS = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -18,22 +14,20 @@ const OPTIONS = [
   { value: 'vanilla', label: 'Vanilla' },
 ]
 
-const defaultValues: TFormValues = {
-  title: '',
-  select: '',
-  publish: true,
-}
-
 const HookFormDemo: FC = () => {
+  const defaultValues = useAppSelector(selectForm)
+  const dispatch = useAppDispatch()
+  const { updateFormData } = formSlice.actions
+
   const { handleSubmit, ...formProps } = useForm({ defaultValues })
 
-  const onSubmit: SubmitHandler<TFormValues> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<DemoFormState> = (data) => dispatch(updateFormData(data))
 
   return (
     <form className="flex flex-col [&>*]:mb-2 min-w-[600px]" onSubmit={handleSubmit(onSubmit)}>
       <Grid container columns={2} spacing="16px">
         <Grid item xs={1}>
-          <Input name="title" {...formProps} />
+          <Input name="title" inputProps={{ placeholder: 'Введите тайтл' }} {...formProps} />
         </Grid>
         <Grid item xs={1}>
           <Select name="select" options={OPTIONS} {...formProps} />
