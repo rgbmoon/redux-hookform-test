@@ -11,7 +11,7 @@ const ReduxDemo: FC = () => {
 
   const dispatch = useAppDispatch()
   return (
-    <div className="flex flex-col [&>*]:mb-4 mt-[120px]">
+    <div className="flex flex-col [&>*]:mb-4">
       <Typography variant="h4" className="text-center">
         {count}
       </Typography>
