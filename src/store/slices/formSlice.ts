@@ -7,12 +7,16 @@ export interface DemoFormState {
   title: string
   select: string
   publish: boolean
+  demoArray: Array<{
+    input: ''
+  }>
 }
 
 const initialState: DemoFormState = {
   title: '',
   select: '',
   publish: false,
+  demoArray: [],
 }
 
 export const formSlice = createSlice({
@@ -23,6 +27,7 @@ export const formSlice = createSlice({
       state.publish = action.payload.publish
       state.select = action.payload.select
       state.title = action.payload.title
+      state.demoArray = action.payload.demoArray
     },
   },
 })
