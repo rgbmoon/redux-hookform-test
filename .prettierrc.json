@@ -4,5 +4,8 @@
   "tabWidth": 2,
   "singleQuote": true,
   "semi": false,
-  "jsxBracketSameLine": true
+  "jsxBracketSameLine": true,
+  "importOrder": ["^components/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
