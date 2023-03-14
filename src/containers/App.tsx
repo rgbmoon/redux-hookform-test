@@ -18,9 +18,6 @@ function App() {
       <button className="py-1 px-2 bg-slate-400 text-white" onClick={() => dispatch(decrement())}>
         Минус сус
       </button>
-      <button className="py-1 px-2 bg-slate-400 text-white" onClick={() => dispatch(decrement())}>
-        Минус сус
-      </button>
     </div>
   )
 }
