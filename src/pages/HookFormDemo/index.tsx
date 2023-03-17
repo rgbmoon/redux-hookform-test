@@ -1,12 +1,13 @@
+import CloseIcon from '@mui/icons-material/Close'
 import { Button, Grid, IconButton } from '@mui/material'
 import React, { FC } from 'react'
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 
+import { Checkbox } from '../../components/Checkbox'
+import { Input } from '../../components/Input'
+import { Select } from '../../components/Select'
 import { useActions, useAppSelector } from '../../hooks'
 import { DemoFormState, selectForm } from '../../store/slices/formSlice'
-import { Checkbox } from './components/Checkbox'
-import { Input } from './components/Input'
-import { Select } from './components/Select'
 
 const OPTIONS = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -56,7 +57,7 @@ const HookFormDemo: FC = () => {
             </Grid>
             <Grid item xs={1}>
               <IconButton color="secondary" onClick={() => remove(index)}>
-                Х
+                <CloseIcon />
               </IconButton>
             </Grid>
           </Grid>

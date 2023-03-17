@@ -10,7 +10,7 @@ const StateMonitor: FC = () => {
   const formState = useAppSelector(selectForm)
 
   return (
-    <div className="w-full p-4 m-6 bg-slate-200 border border-neutral-400 rounded-lg">
+    <div className="w-full p-4 bg-slate-200 border border-neutral-400 rounded-lg">
       <Grid container columns={2} spacing="16px">
         <Grid item xs={1}>
           <Typography variant="h4">Стейт счетчика</Typography>
