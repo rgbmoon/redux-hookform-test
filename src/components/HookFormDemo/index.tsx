@@ -2,8 +2,8 @@ import { Button, Grid, IconButton } from '@mui/material'
 import React, { FC } from 'react'
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 
-import { useAppDispatch, useAppSelector } from '../../hooks'
-import { DemoFormState, formSlice, selectForm } from '../../store/slices/formSlice'
+import { useActions, useAppSelector } from '../../hooks'
+import { DemoFormState, selectForm } from '../../store/slices/formSlice'
 import { Checkbox } from './components/Checkbox'
 import { Input } from './components/Input'
 import { Select } from './components/Select'
@@ -16,8 +16,7 @@ const OPTIONS = [
 
 const HookFormDemo: FC = () => {
   const defaultValues = useAppSelector(selectForm)
-  const dispatch = useAppDispatch()
-  const { updateFormData } = formSlice.actions
+  const { updateFormData } = useActions()
 
   const { handleSubmit, ...formProps } = useForm({ defaultValues })
   const { fields, append, remove } = useFieldArray({
@@ -25,7 +24,7 @@ const HookFormDemo: FC = () => {
     name: 'demoArray',
   })
 
-  const onSubmit: SubmitHandler<DemoFormState> = (data) => dispatch(updateFormData(data))
+  const onSubmit: SubmitHandler<DemoFormState> = (data) => updateFormData(data)
 
   return (
     <form

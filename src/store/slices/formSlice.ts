@@ -32,9 +32,7 @@ export const formSlice = createSlice({
   },
 })
 
-export const { updateFormData } = formSlice.actions
-
-export type UpdateFormDataAction = typeof updateFormData
+export const formActions = formSlice.actions
 
 export const selectForm = (state: RootState) => state.form
 
