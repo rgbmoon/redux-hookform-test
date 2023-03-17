@@ -2,6 +2,7 @@ import { AppBar, Typography } from '@mui/material'
 import React from 'react'
 
 import { HookFormDemo } from '../components/HookFormDemo'
+import { Pokemon } from '../components/Pokemon'
 import { ReduxDemo } from '../components/ReduxDemo'
 import { StateMonitor } from '../components/StateMonitor'
 
@@ -16,6 +17,7 @@ function App() {
       <ReduxDemo />
       <HookFormDemo />
       <StateMonitor />
+      <Pokemon />
     </div>
   )
 }
